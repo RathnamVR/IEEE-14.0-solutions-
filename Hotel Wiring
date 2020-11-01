@@ -13,5 +13,5 @@ for t in range(T):
         rooms+=(N-mil[k])
     for k1 in range(K,M):
         rooms+=mil[k1]
-    print(rooms)
+    print(rooms) 
 
