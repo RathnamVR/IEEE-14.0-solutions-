@@ -1,0 +1,50 @@
+NMRC=input()
+N,M,R,C=(int(i) for i in NMRC.split())
+base=[]
+d=[]
+se=0
+for r in range(R):
+    h=input()
+    base=list(int(y) for y in h.split())
+    se+=sum(base)
+    
+    d.append(base)
+q=int(N/R)*int(M/C)
+amount=se*q
+remain_colom=M%C
+remain_row=N%R
+col_tol=[]
+for x1 in range(C):
+    col=[]
+    for x in range(R):
+        col.append(d[x][x1])
+    col_tol.append(col)
+f1=0
+f2=0
+for t1 in range(remain_colom):
+     f1+=sum(col_tol[t1])
+     f2+=sum(col_tol[C-t1-1])
+g1=0
+g2=0
+for s1 in range(remain_row):
+    g1+=sum(d[s1])
+    g2+=sum(d[R-s1-1])
+    s1+=1
+w1=g1+f1
+w2=g2+f2
+cutC=C-N%C 
+cutR=R-M%R 
+p=0
+if (w1<=w2):
+   for d1 in range(remain_row):
+       for d2 in range(remain_colom):
+           p+=d[d1][d2]
+   amount+=g1*int(M/C)+f1*int(N/R)+p
+    
+elif (w1>w2):
+   for e in range(R-remain_row,R):
+       for e1 in range(C-remain_colom,C):
+           p+=d[e][e1]
+   amount+=g2*int(M/C)+f2*int(N/R)+p
+   
+print(amount)
