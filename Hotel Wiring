@@ -1,1 +1,17 @@
+T=int(input())
+for t in range(T):
+    rooms=0
+    MNK=input()
+    M,N,K=(int(i) for i in MNK.split())
+    mil=[]
+    for m in range(M):
+        mi=int(input())
+        mil.append(mi)
+    mil.sort()
+    
+    for k in range(K):
+        rooms+=(N-mil[k])
+    for k1 in range(K,M):
+        rooms+=mil[k1]
+    print(rooms)
 
