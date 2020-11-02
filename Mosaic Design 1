@@ -1,0 +1,18 @@
+NCbCp=input()
+N,Cb,Cp=(int (i) for i in NCbCp.split())
+b=0
+p=0
+for r in range(N):
+    t=input()
+    bl,pi=(int(j) for j in t.split())
+    b+=bl
+    p+=pi
+if (b%10==0):
+    amb=int(b/10)*Cb
+else:
+    amb=(int(b/10)+1)*Cb
+if (p%10==0):
+    ama=int(p/10)*Cp
+else:
+    ama=(int(p/10)+1)*Cp
+print(amb+ama)
