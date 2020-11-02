@@ -1,0 +1,15 @@
+N=int(input())
+k=[]
+for i in range(N):
+    K=input()
+    k.append(K)
+c=0
+for i1 in range(N):
+    for i2 in range(i1+1,N):
+        s=0
+        for n in range(14):
+            if  (k[i1][n]!=k[i2][n]):
+                s+=1
+        if s==1:
+            c+=1
+print(c)                   
