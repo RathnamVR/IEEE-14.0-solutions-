@@ -1,0 +1,23 @@
+CNPW=input()
+C,N,P,W=(int(i) for i in CNPW.split())
+if (W%P==0):
+    taken_slots=int(W/P)
+else:
+    taken_slots=int(W/P)+1
+free_slots=N-taken_slots
+if (C>W):
+    print("0")
+else:
+    table=0
+    while (W>=C and free_slots>=0):
+        W-=C
+        table+=1
+        if (W%P==0):
+             taken_slots=int(W/P)
+        else:
+             taken_slots=int(W/P)+1
+        free_slots=N-taken_slots-table
+    if (free_slots<0):
+        print(table-1)
+    else:
+        print(table)
