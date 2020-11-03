@@ -1,0 +1,41 @@
+L=int(input())
+for l in range(L):
+  s=input()
+  u=[]
+  u2=[]
+  for i in range(len(s)):
+        
+    for j in range(i+1,len(s)):
+            u1=[]
+            s1=s[i:j+1]
+            if (s1==s1[::-1] and len(s1)!=len(s)):
+                u.append(len(s1))
+                u1.append(i)
+                u1.append(j)
+                u2.append(u1)
+  
+  if (len(u)==0):
+    print("2")
+  else:
+    f=0
+    h1=max(u)
+    p1=u.index(h1)
+    ith=u2[p1][0]
+    jth=u2[p1][1]
+    
+    u.remove(h1)
+    u2.remove(u2[p1])
+    f+=h1
+    while(len(u)>0):
+        h=max(u)
+        p=u.index(h)
+        i1=max(u2[p])
+        j1=min(u2[p])
+        u.remove(h)
+        u2.remove(u2[p])
+        if (i1<ith or jth<j1):
+            f+=h
+            print(f)
+            break
+    if (len(u)==0):
+         print(f+1)
