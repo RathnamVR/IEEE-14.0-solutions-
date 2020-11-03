@@ -1,0 +1,20 @@
+NT=input()
+N,T=(int(i) for i in NT.split())
+ON=input()
+on=list(int(y) for y in ON.split())
+onp=on
+on.sort()
+s=0
+newon=[]
+new=[]
+while (on!=new):
+    if s==0:
+        newon=onp
+    newon=[x+1 for x in newon]
+    if (max(newon)==T):
+        y=newon.index(max(newon))
+        newon[y]=0
+    new=newon
+    new.sort()
+    s+=1
+print(s-1)
