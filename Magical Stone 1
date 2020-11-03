@@ -1,0 +1,31 @@
+N=int(input())
+si=input()
+Si=list(int(i) for i in si.split())
+dic={}
+for e in range(N):
+    dic[e+1]=Si[e]
+Q=int(input())
+for q in range(Q):
+    K=int(input())
+    Si=list(int(i) for i in si.split())
+    Si=list(dict.fromkeys(Si))
+    Si.sort()
+    sp=1
+    w=0
+    while (len(Si)>=1):
+       if (len(Si)==K):
+           print(sp)
+           break
+       elif (len(Si)<K):
+           print("-1")
+           break
+       else:
+           Sa=Si
+           Si=[dic.get(item,item) for item in Sa]
+           Si=list(dict.fromkeys(Si))
+           Si.sort()
+           if (Sa==Si):
+               print("-1")
+               break
+           
+           sp+=1
